@@ -1,0 +1,10 @@
+langgraph
+langchain-openai
+chromadb
+pypdf
+mcp>=2
+python-dotenv
+python-docx
+# web API for the React frontend (both are already dependencies of mcp)
+starlette
+uvicorn

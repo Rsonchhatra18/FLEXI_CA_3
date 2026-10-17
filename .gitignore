@@ -1,0 +1,20 @@
+.env
+.venv/
+chroma_db/
+__pycache__/
+*.pyc
+# React + Vite frontend (rebuilt with `npm install` + `npm run build`)
+frontend/node_modules/
+frontend/dist/
+# Word lock files created while the report is open
+report/~$*.docx
+# personal / bulky report artefacts stay local (generated report has name + PRN,
+# course screenshots may show account details). Remove these lines to publish them.
+report/*.docx
+report/*.pdf
+report/student.json
+report/screenshots/c*.png
+report/screenshots/originals/
+# user uploads waiting to be processed
+inbox/*
+!inbox/.gitkeep
