@@ -142,6 +142,8 @@ def para(doc, text: str = "", bold_prefix: str | None = None, italic=False, size
 
 def bullet(doc, text: str, bold_prefix: str | None = None):
     p = doc.add_paragraph(style="List Bullet")
+    p.paragraph_format.space_after = Pt(2)   # direct formatting: compact lists
+    p.paragraph_format.line_spacing = 1.05
     if bold_prefix:
         p.add_run(bold_prefix).bold = True
     p.add_run(text)
@@ -173,6 +175,8 @@ def table(doc, headers: list[str], rows: list[list], widths: list[float], font_s
     for row in t.rows:
         for i, w in enumerate(widths):
             row.cells[i].width = Inches(w)
+        cant_split = OxmlElement("w:cantSplit")  # never break a row across two pages
+        row._tr.get_or_add_trPr().append(cant_split)
     doc.add_paragraph()
     return t
 
